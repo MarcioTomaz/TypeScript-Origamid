@@ -82,3 +82,50 @@ function preencherDados2(dados: InterfaceProduto) {
   </div>
   `;
 }
+
+// ================Exercício==========================
+
+// Defina a interface da API: https://api.origamid.dev/json/notebook.json e mostre os dados na tela.
+
+async function fetchProduct() {
+  const response = await fetch('https://api.origamid.dev/json/notebook.json');
+  const data = await response.json();
+  showProduct(data);
+}
+
+fetchProduct();
+
+interface Empresa {
+  fundacao: number;
+  nome: string;
+  pais: string;
+}
+
+interface interfaceDataProduct {
+  nome: string;
+  preco: number;
+  descricao: string;
+  garantia: string;
+  seguroAcidentes: boolean;
+  empresaFabricante: Empresa;
+  empresaMontadora: Empresa;
+}
+
+function showProduct(data: interfaceDataProduct) {
+  document.body.innerHTML = `
+    <div>
+      <h2>${data.nome}</h2>
+      <h2>${data.preco}</h2>
+      <h2>${data.descricao}</h2>
+      <h2>${data.garantia}</h2>
+      <h2>${data.seguroAcidentes ? 'Possui Seguro' : 'Não possui seguro'}</h2>
+      <div>
+      <h3>Fabricante: ${data.empresaFabricante.nome}</h3>
+    </div>
+      <div>
+        <h3>Montadora: ${data.empresaMontadora.nome}</h3>
+      </div>
+    </div>
+    </div>
+  `;
+}
