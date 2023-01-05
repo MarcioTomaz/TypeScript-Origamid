@@ -38,3 +38,12 @@ function pintarCategoria(categoria) {
     }
 }
 pintarCategoria('codigo');
+function preencherDados2(dados) {
+    document.body.innerHTML += `
+  <div>
+    <h2>${dados.nome}</h2>
+    <p>R$ ${dados.preco}</p>
+    <p>Inclui teclado: ${dados.teclado ? 'sim' : 'não'}</p>
+  </div>
+  `;
+}

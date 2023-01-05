@@ -56,3 +56,29 @@ function pintarCategoria(categoria: Categorias) {
 }
 
 pintarCategoria('codigo');
+
+
+//============= Interfaces
+//interface geralmente da mesma forma que type, porém possui uma sintaxe diferente. As intefaces são geralmente utilizadas para definirmos objetos e tipos primitivos utilizamos o type.
+
+interface InterfaceProduto {
+  nome: string;
+  preco: number;
+  teclado: boolean;
+}
+
+type TypeProduto = {
+  nome: string;
+  preco: number;
+  teclado: boolean;
+};
+
+function preencherDados2(dados: InterfaceProduto) {
+  document.body.innerHTML += `
+  <div>
+    <h2>${dados.nome}</h2>
+    <p>R$ ${dados.preco}</p>
+    <p>Inclui teclado: ${dados.teclado ? 'sim' : 'não'}</p>
+  </div>
+  `;
+}
